@@ -3,10 +3,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Sparkles, Brain, Palette, Lock, Baby, Moon, Sun, BookOpen, Megaphone, Store } from "lucide-react";
-import PuppyMascot from "../components/PuppyMascot";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
+import PuppyMascot from "../components/PuppyMascot";
 
 const vibes = {
   Calm: { gradient: "from-blue-200 via-fuchsia-200 to-rose-200 dark:from-blue-900 dark:via-fuchsia-900 dark:to-rose-900",

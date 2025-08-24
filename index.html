@@ -1,19 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GamePuppy — VibeGaming</title>
+
+  <!-- Favicon (uses paw.svg if present; otherwise data-URL fallback) -->
   <link rel="icon" href="paw.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'ui-sans-serif', 'Segoe UI', 'Roboto'] },
+          boxShadow: {
+            soft: '0 10px 30px -10px rgb(0 0 0 / 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { color-scheme: light dark; }
+    html, body { height: 100%; }
+    .container { max-width: 1100px; }
+  </style>
 </head>
-<body class="min-h-screen flex flex-col">
-  <!-- Header -->
+
+<body class="bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-100 font-sans">
+  <!-- top glow -->
+  <div class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[90vw] h-[90vw] rounded-full blur-3xl opacity-30 bg-gradient-to-tr from-fuchsia-400 via-purple-400 to-rose-300 dark:from-fuchsia-700 dark:via-purple-700 dark:to-rose-600"></div>
+  </div>
+
+  <!-- header -->
   <header class="container mx-auto px-6 py-6 flex items-center justify-between">
     <div class="flex items-center gap-2 font-bold text-lg">
-      🐶 GamePuppy <span class="opacity-70 text-sm font-medium">/ VibeGaming</span>
-      <span class="bg-zinc-200 text-zinc-900 px-2 rounded-full text-xs ml-2">alpha</span>
-      <span class="bg-zinc-200 text-zinc-900 px-2 rounded-full text-xs ml-2">√ of AI: Safe</span>
+      <!-- puppy mascot -->
+      <svg viewBox="0 0 64 64" class="w-7 h-7" aria-label="GamePuppy">
+        <defs><clipPath id="faceClip"><circle cx="32" cy="34" r="18"/></clipPath></defs>
+        <path d="M14 20c-6 0-8 6-8 10 0 3 2 6 5 7 4 1 9-3 11-9l2-6-10-2z" fill="currentColor" opacity="0.85"/>
+        <path d="M50 20c6 0 8 6 8 10 0 3-2 6-5 7-4 1-9-3-11-9l-2-6 10-2z" fill="currentColor" opacity="0.85"/>
+        <circle cx="32" cy="34" r="20" fill="currentColor" opacity="0.12"/>
+        <g clip-path="url(#faceClip)">
+          <circle cx="32" cy="34" r="18" fill="currentColor" opacity="0.08"/>
+          <circle cx="24" cy="32" r="2.2" fill="currentColor"/>
+          <circle cx="40" cy="32" r="2.2" fill="currentColor"/>
+          <path d="M32 36c2.2 0 4 1.8 4 4 0 3-3 5-6 5s-6-2-6-5c0-2.2 1.8-4 4-4h4z" fill="currentColor" opacity="0.2"/>
+          <circle cx="32" cy="38" r="2.3" fill="currentColor"/>
+          <path d="M29 41c1 .8 2.1 1.2 3 1.2s2-.4 3-1.2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      GamePuppy <span class="opacity-70 text-sm font-medium">/ VibeGaming</span>
+      <span class="ml-2 rounded-full px-2 py-0.5 text-xs bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-white">alpha</span>
+      <span class="ml-2 rounded-full px-2 py-0.5 text-xs bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-white">√ of AI: Safe</span>
     </div>
     <nav class="hidden md:flex items-center gap-6 text-sm">
       <a href="#features" class="opacity-80 hover:opacity-100">Features</a>
@@ -22,57 +67,194 @@
       <a href="#pricing" class="opacity-80 hover:opacity-100">Pricing</a>
       <a href="#partners" class="opacity-80 hover:opacity-100">Partners</a>
     </nav>
-    <div class="flex gap-3">
-      <button class="px-4 py-2 rounded-xl border">Log in</button>
-      <button class="px-4 py-2 rounded-xl bg-black text-white">Get Started</button>
+    <div class="flex items-center gap-3">
+      <button class="hidden sm:inline-flex px-4 py-2 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900">Log in</button>
+      <button class="px-4 py-2 rounded-2xl bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200">Get Started</button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="container mx-auto px-6 py-16 text-center">
-    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Play that fits the vibe — with paws 🐶</h1>
-    <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-      Parent-powered play tuned to your kid’s mood, age, and interests. No ads. No strangers. √ of AI = smart help, safe by design.
-    </p>
-    <div class="mt-6 flex flex-wrap justify-center gap-3">
-      <button class="px-5 py-2.5 rounded-xl bg-black text-white">Create your first game</button>
-      <button class="px-5 py-2.5 rounded-xl border">Watch demo</button>
+  <!-- hero -->
+  <section class="container mx-auto px-6 pt-6 pb-16 md:pb-20">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+          Play that fits the vibe — with paws 🐶
+        </h1>
+        <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400 max-w-xl">
+          Parent-powered play tuned to your kid’s mood, age, and interests. No ads. No strangers.
+          √ of AI = smart help, safe by design.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a class="px-5 py-2.5 rounded-2xl bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 shadow-soft" href="#pricing">Create your first game</a>
+          <a class="px-5 py-2.5 rounded-2xl border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-900" href="#features">Watch demo</a>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400">Free while in alpha</div>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-xs text-zinc-600 dark:text-zinc-400">
+          <span>🛡️ √ of AI — Safety-first</span>
+          <span>🔒 Offline option</span>
+          <span>✨ AI co-designer</span>
+        </div>
+      </div>
+
+      <!-- vibe preview card -->
+      <div class="rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-soft">
+        <div class="p-8 bg-gradient-to-tr from-blue-200 via-fuchsia-200 to-rose-200 dark:from-blue-900 dark:via-fuchsia-900 dark:to-rose-900">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold">Vibe Preview — GamePuppy</div>
+            <div class="text-sm opacity-80">🌙/☀️</div>
+          </div>
+          <p class="mt-2 text-sm opacity-80 max-w-md">Gentle stories for winding down</p>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <button class="px-3 py-1.5 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">Calm</button>
+            <button class="px-3 py-1.5 rounded-xl border">Playful</button>
+            <button class="px-3 py-1.5 rounded-xl border">Learn</button>
+          </div>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-4">Soothing, low-stimulus adventures designed for bedtime and focus.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-white">Bedtime</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-white">Mindful</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-white">Story-first</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features" class="container mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold text-center mb-10">Why parents choose GamePuppy</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-6 border rounded-2xl">🛡️ Safety by design<br/><span class="text-sm text-zinc-600">No ads, no strangers, private by default.</span></div>
-      <div class="p-6 border rounded-2xl">🧠 Psychology-aware<br/><span class="text-sm text-zinc-600">Age-appropriate puzzles and stories.</span></div>
-      <div class="p-6 border rounded-2xl">🎨 No-code creativity<br/><span class="text-sm text-zinc-600">Drag-and-drop game builder.</span></div>
+  <!-- features -->
+  <section id="features" class="container mx-auto px-6 py-12 md:py-16">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold">Why parents choose GamePuppy</h2>
+      <p class="mt-2 text-zinc-600 dark:text-zinc-400">Cute UI, serious privacy. Nerdy-and-sqirty fun that grows with your child.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 shadow-soft">
+        <div class="font-semibold mb-1">Safety by design (√ of AI)</div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">No ads, no strangers, no dark patterns. Private by default with offline mode.</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 shadow-soft">
+        <div class="font-semibold mb-1">Psychology-aware (kid-calibrated)</div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">Age-appropriate stories, puzzles, and difficulty tuned to development.</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 shadow-soft">
+        <div class="font-semibold mb-1">No-code creativity</div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">Drag-and-drop builder with smart AI suggestions.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Vibes -->
-  <section id="vibes" class="container mx-auto px-6 py-16 text-center">
-    <h3 class="text-3xl font-bold">Pick a vibe. We tune the play.</h3>
-    <div class="grid md:grid-cols-3 gap-4 mt-6">
-      <div class="p-6 border rounded-2xl">🌙 Calm<br/><span class="text-sm">Bedtime, mindful, story-first.</span></div>
-      <div class="p-6 border rounded-2xl">⚡ Playful<br/><span class="text-sm">Energy, silly fun, co-play.</span></div>
-      <div class="p-6 border rounded-2xl">📚 Learn<br/><span class="text-sm">Math, reading, STEM.</span></div>
+  <!-- vibes -->
+  <section id="vibes" class="container mx-auto px-6 py-12 md:py-16">
+    <div class="text-center mb-10">
+      <h3 class="text-2xl md:text-3xl font-bold">Pick a vibe. We tune the play.</h3>
+      <p class="mt-2 text-zinc-600 dark:text-zinc-400">Like a playlist for screen time — Calm, Playful, or Learn.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="rounded-2xl overflow-hidden shadow-soft border border-zinc-200 dark:border-zinc-800">
+        <div class="p-6 bg-gradient-to-tr from-blue-200 via-fuchsia-200 to-rose-200 dark:from-blue-900 dark:via-fuchsia-900 dark:to-rose-900 font-semibold">Calm</div>
+        <div class="p-6 text-sm text-zinc-600 dark:text-zinc-400">Bedtime, mindful, story-first.</div>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-soft border border-zinc-200 dark:border-zinc-800">
+        <div class="p-6 bg-gradient-to-tr from-amber-200 via-rose-200 to-fuchsia-200 dark:from-amber-900 dark:via-rose-900 dark:to-fuchsia-900 font-semibold">Playful</div>
+        <div class="p-6 text-sm text-zinc-600 dark:text-zinc-400">Energy, silly fun, co-play.</div>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-soft border border-zinc-200 dark:border-zinc-800">
+        <div class="p-6 bg-gradient-to-tr from-emerald-200 via-lime-200 to-teal-200 dark:from-emerald-900 dark:via-lime-900 dark:to-teal-900 font-semibold">Learn</div>
+        <div class="p-6 text-sm text-zinc-600 dark:text-zinc-400">Math, reading, STEM.</div>
+      </div>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="container mx-auto px-6 py-16 text-center">
-    <h3 class="text-3xl font-bold mb-6">Simple, family-friendly pricing</h3>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-6 border rounded-2xl"><h4>Free</h4><p>Create up to 2 games</p></div>
-      <div class="p-6 border rounded-2xl bg-zinc-100"><h4>Family — $9/mo</h4><p>Unlimited games + AI co-designer</p></div>
-      <div class="p-6 border rounded-2xl"><h4>Schools & Clinics</h4><p>Multi-seat license + admin tools</p></div>
+  <!-- partners -->
+  <section id="partners" class="container mx-auto px-6 py-12 md:py-16">
+    <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-8 flex flex-col lg:flex-row items-center gap-6 justify-between shadow-soft">
+      <div>
+        <h3 class="text-2xl font-bold mb-2">Become a GamePuppy partner</h3>
+        <p class="text-zinc-600 dark:text-zinc-400 max-w-2xl">Schools, clinics, and parent communities — co-create safer, smarter play with us.</p>
+      </div>
+      <div class="flex gap-3">
+        <a href="mailto:info@gamepuppy.co" class="px-5 py-2.5 rounded-2xl bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200">Become a partner</a>
+        <a href="https://calendly.com/your-handle/gamepuppy-partner-intro" target="_blank" rel="noreferrer" class="px-5 py-2.5 rounded-2xl border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-900">Book a call</a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t py-6 text-center text-sm text-zinc-600">
-    © <script>document.write(new Date().getFullYear())</script> GamePuppy. Safe by design, proudly √ of AI.
+  <!-- pricing -->
+  <section id="pricing" class="container mx-auto px-6 pb-20">
+    <div class="text-center mb-10">
+      <h3 class="text-2xl md:text-3xl font-bold">Simple, family-friendly pricing (no tricks, just treats)</h3>
+      <p class="mt-2 text-zinc-600 dark:text-zinc-400">Start free. Upgrade when you’re ready.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 bg-white/70 dark:bg-zinc-900/60 shadow-soft">
+        <h4 class="font-semibold">Free</h4>
+        <ul class="list-disc pl-5 mt-2 text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
+          <li>Create up to 2 games</li><li>Core templates</li><li>Private play</li>
+        </ul>
+        <a class="mt-4 inline-flex w-full justify-center px-4 py-2 rounded-2xl bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200" href="#top">Get started</a>
+      </div>
+      <div class="rounded-2xl border-2 border-zinc-900 dark:border-white p-6 bg-white/80 dark:bg-zinc-900/60 shadow-soft">
+        <div class="flex items-center justify-between">
+          <h4 class="font-semibold">Family</h4>
+          <span class="px-2 py-0.5 rounded-full text-xs bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-white">Most popular</span>
+        </div>
+        <div class="text-3xl font-extrabold mt-1">$9<span class="text-base font-medium">/mo</span></div>
+        <ul class="list-disc pl-5 mt-2 text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
+          <li>Unlimited games</li><li>AI co-designer</li><li>Offline mode</li><li>Basic marketplace access</li>
+        </ul>
+        <a class="mt-4 inline-flex w-full justify-center px-4 py-2 rounded-2xl bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200" href="#top">Choose Family</a>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 bg-white/70 dark:bg-zinc-900/60 shadow-soft">
+        <h4 class="font-semibold">Schools & Clinics</h4>
+        <ul class="list-disc pl-5 mt-2 text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
+          <li>Multi-seat license</li><li>Admin / classroom controls</li><li>Priority support</li><li>Custom privacy agreements</li>
+        </ul>
+        <a class="mt-4 inline-flex w-full justify-center px-4 py-2 rounded-2xl border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-900" href="mailto:sales@gamepuppy.co">Contact sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="border-t border-zinc-200/60 dark:border-zinc-800/60">
+    <div class="container mx-auto px-6 py-10 grid md:grid-cols-3 gap-6 text-sm">
+      <div>
+        <div class="flex items-center gap-2 font-semibold">
+          <svg viewBox="0 0 64 64" class="w-6 h-6" aria-hidden="true"><circle cx="20" cy="20" r="8" fill="currentColor"/><circle cx="44" cy="20" r="8" fill="currentColor"/><circle cx="32" cy="36" r="16" fill="currentColor" opacity="0.2"/></svg>
+          GamePuppy
+        </div>
+        <p class="mt-2 text-zinc-600 dark:text-zinc-400 max-w-sm">
+          GamePuppy is a parent-first, psychology-aware game studio: safe by design, creative by default, and proudly √ of AI.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <div class="font-semibold mb-2">Product</div>
+          <ul class="space-y-1 text-zinc-600 dark:text-zinc-400">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-2">Company</div>
+          <ul class="space-y-1 text-zinc-600 dark:text-zinc-400">
+            <li><a href="#partners">Partners</a></li>
+            <li>Press</li>
+            <li>Privacy</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-2">Stay in the loop</div>
+        <div class="flex gap-2">
+          <input placeholder="Email address" class="flex-1 rounded-xl px-3 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"/>
+          <button class="px-4 py-2 rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">Subscribe</button>
+        </div>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-2">We’ll only email about major updates. Zero spam.</p>
+      </div>
+    </div>
+    <div class="text-xs text-center text-zinc-500 dark:text-zinc-400 pb-8">© <script>document.write(new Date().getFullYear())</script> GamePuppy. All rights reserved.</div>
   </footer>
 </body>
 </html>
